@@ -1,0 +1,10 @@
+build
+dist
+nbproject/private
+log
+.jacocoverage
+data
+/target/
+webroot2/nbproject
+webroot2/grafana/nbproject
+nb-configuration.xml
