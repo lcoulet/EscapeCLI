@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
 
 /*
@@ -24,7 +25,7 @@ public class CLI extends javax.swing.JFrame {
             + "Subject: Hack in the company authentication database\n"
             + "\n"
             + "Dear Heather,\n"
-            + "we have evidences that our datacenter has been hacxked, \n"
+            + "we have evidences that our datacenter has been hacked, \n"
             + "somebody has stolen the employees database.\n"
             + "Therefore personal details and authentication \n"
             + "information for all employees is in the wild.\n"
@@ -57,29 +58,40 @@ public class CLI extends javax.swing.JFrame {
 
     }
 
-    final String asciiArt = "         .ed\"\"\"\" \"\"\"$$$$be.\n"
-            + "     -\"           ^\"\"**$$$e.\n"
-            + "   .\"                   '$$$c\n"
-            + "  /                      \"4$$b\n"
-            + " d  3                      $$$$\n"
-            + " $  *                   .$$$$$$\n"
-            + ".$  ^c           $$$$$e$$$$$$$$.\n"
-            + "d$L  4.         4$$$$$$$$$$$$$$b\n"
-            + "$$$$b ^ceeeee.  4$$ECL.F*$$$$$$$\n"
-            + "$$$$P d$$$$F $ $$$$$$$$$- $$$$$$\n"
-            + "3$$$F \"$$$$b   $\"$$$$$$$  $$$$*\"\n"
-            + " $$P\"  \"$$b   .$ $$$$$...e$$\n"
-            + "  *c    ..    $$ 3$$$$$$$$$$eF\n"
-            + "    %ce\"\"    $$$  $$$$$$$$$$*\n"
-            + "     *$e.    *** d$$$$$\"L$$\n"
-            + "      $$$      4J$$$$$% $$$\n"
-            + "     $\"'$=e....$*$$**$cz$$\"\n"
-            + "     $  *=%4.$ L L$ P3$$$F\n"
-            + "     $   \"%*ebJLzb$e$$$$$b\n"
-            + "      %..      4$$$$$$$$$$\n"
-            + "       $$$e   z$$$$$$$$$$\n"
-            + "        \"*$c  \"$$$$$$$P\"\n"
-            + "          \"\"\"*$$$$$$$\"";
+    final String asciiArt
+            = "                          ,(%%%%%%%%%%%%%%%%%%%(,                                             \n"
+            + "                     ,%%%%%%%%%%%%%%%%%%%%%%%%%%%%%##,              Strange Corp OS v12.8.54R1\n"
+            + "                 .##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#.                                    \n"
+            + "              .%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.                                 \n"
+            + "            (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*                               \n"
+            + "          (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#                             \n"
+            + "        ,%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*#%%%%%%%%%%%%%%%%%%%%%%%,                           \n"
+            + "       #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%,     /%%%%%%%%%%%%%%%%%%%%%%%#                          \n"
+            + "      %%%%%%%%%%%%%%%%%%%%%%%%#%%/           #%%%%%%%%%%%%%%%%%%%%%%%                         \n"
+            + "     %%%%%%%%%%%%%%%%%%%%%%%%/                .%%%%%%%%%%%%%%%%%%%%%%%                        \n"
+            + "    %%%%%%%%%%%%%%%%%%%%%/                .%&& #%%%%%%%%%%%%%%%%%%%%%                         \n"
+            + "   #%%%%%%%%%%%%%%%%%*                /&&&&/       /%%%%%%%%%%%%%%%%%%%%                      \n"
+            + "  ,%%%%%%%%%%%%%%*                ,&&&&/             (%%%%%%%%%%%%%%%%%%,                     \n"
+            + "  #%%%%%%%%%%/                *&&&                   (%%%%%%%%%%%%%%%%%                       \n"
+            + "  #%%%%%%%%#               *&&                         #%%%%%%%%%%%%%%%                       \n"
+            + "  %%%%%%%%%%%/                           (&                #%%%%%%%%%%%%#                     \n"
+            + "  %%%%%%%%%%%%%*                     (&&&&&&&.               %%%%%%%%%%%%                     \n"
+            + "  %%%%%%%%%%%%%%%(               #&&&&&&&%                 %&&%%%%%%%%%%%                     \n"
+            + "  #%%%%%%%%%%%%%%%%(         #&&&&&&%%                 %&&&&&&&%%%%%%%%%#                     \n"
+            + "   %%%%%%%%%%%%%%%%%%/   #&&&&&&%%.                %&&&&&&&&%%%%%%%%%%%%.                     \n"
+            + "   (%%%%%%%%%%%%%%%%%%%%&&&&&%.                (&&&&&&&&%%%%%%%%%%%%%%%#                      \n"
+            + "    %%%%%%%%%%%%%%%%%%%%%%.                (&&&&&&&&&%%%%%%%%%%%%%%%%%%                       \n"
+            + "     %%%%%%%%%%%%%%%%%%%%%%*           (&&&&&&&&%%%%%%%%%%%%%%%%%%%%%%                        \n"
+            + "      #%%%%%%%%%%%%%%%%%%%%%%/     #&&&&&&&&%%%%%%%%%%%%%%%%%%%%%%%%#                         \n"
+            + "       *%%%%%%%%%%%%%%%%%%%%%%%#%&&&&&&&%%%%%%%%%%%%%%%%%%%%%%%%%%#*                          \n"
+            + "         %%%%%%%%%%%%%%%%%%%%%%%%%&&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                            \n"
+            + "           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                              \n"
+            + "            .%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                \n"
+            + "               (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#(                                  \n"
+            + "                  .%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.                                     \n"
+            + "                      .#%#%%%%%%%%%%%%%%%%%%%%%%%%##.                                         \n"
+            + "                            ,(#%%%%%%%%%%%%%#(,                                               \n"
+            + "                                                                                              ";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -131,6 +143,8 @@ public class CLI extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setForeground(new java.awt.Color(0, 255, 0));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setAutoscrolls(true);
 
         jtaOutput.setEditable(false);
@@ -158,7 +172,7 @@ public class CLI extends javax.swing.JFrame {
                         .addComponent(jlCaret, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfInput))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -209,12 +223,8 @@ public class CLI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(CLI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -295,8 +305,6 @@ public class CLI extends javax.swing.JFrame {
 
 
     Expectation[] authSequence = {
-        Expectation.by("Last name?", "Dean"),
-        Expectation.by("First name?", "Heather"),
         Expectation.by("Employee ID?", "43857-0037"),
         Expectation.byImmediate("Password?", "XG92Si3QzZ"),
         rollingSequence()
@@ -371,7 +379,7 @@ public class CLI extends javax.swing.JFrame {
                 case "mail":
                     appendMessage(MAIL_MESSAGE, 1);
                     break;
-                case "read 1":
+                case "read mail":
                     appendMessage(MAIL1_MESSAGE, 1);
                     break;
 
@@ -394,7 +402,7 @@ public class CLI extends javax.swing.JFrame {
             + "12/14 Haha - I found the hacker USB key, data is still there and did not exit the building\n"
             + "12/15 I will lock out strangers until the hacker is found\n"
             + "12/15 Memento: Padlock code is 1039 times 2";
-    protected static final String MAIL_MESSAGE = "You have one new message, to read enter the command \"read 1\"";
+    protected static final String MAIL_MESSAGE = "You have one new message, to read enter the command \"read mail\"";
 
     String oneOf(String[] strs) {
         int idx = oneOf(strs.length);
@@ -404,9 +412,9 @@ public class CLI extends javax.swing.JFrame {
     protected static final String HELP_MESSAGE = "Available commands: \n"
             + "    help: show this help\n"
             + "    exit: exit the secured CLI\n"
-            + "    mail: show new messages\n"
-            + "    log:  access personal log messages\n"
-            + "    odds: special feature";
+            + "    odds: special CLI features"
+            + "    mail: tell about new mail messages\n"
+            + "    log:  access personal log messages\n";
 
 
     static final String[] ODDS_STRINGS={
