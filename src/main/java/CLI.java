@@ -1,4 +1,18 @@
-
+/*
+ * Copyright 2017 Loic.Coulet.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,11 +22,6 @@ import javax.imageio.ImageIO;
 import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -60,8 +69,8 @@ public class CLI extends javax.swing.JFrame {
 
     final String asciiArt
             = "                          ,(%%%%%%%%%%%%%%%%%%%(,                                             \n"
-            + "                     ,%%%%%%%%%%%%%%%%%%%%%%%%%%%%%##,              Strange Corp OS v12.8.54R1\n"
-            + "                 .##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#.                                    \n"
+            + "                     ,%%%%%%%%%%%%%%%%%%%%%%%%%%%%%##,             Strange Corp OS v12.8.54R1\n"
+            + "                 .##%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#.  Copyright Strange Corp. Inc. 1987 \n"
             + "              .%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.                                 \n"
             + "            (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*                               \n"
             + "          (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#                             \n"
@@ -125,7 +134,7 @@ public class CLI extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(0, 255, 0));
 
         jtfInput.setBackground(new java.awt.Color(0, 0, 0));
-        jtfInput.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jtfInput.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         jtfInput.setForeground(new java.awt.Color(0, 255, 0));
         jtfInput.setBorder(null);
         jtfInput.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +144,7 @@ public class CLI extends javax.swing.JFrame {
         });
 
         jlQuestion.setBackground(new java.awt.Color(0, 0, 0));
-        jlQuestion.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
+        jlQuestion.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         jlQuestion.setForeground(new java.awt.Color(0, 255, 0));
         jlQuestion.setText(" ");
         jlQuestion.setOpaque(true);
@@ -153,9 +162,15 @@ public class CLI extends javax.swing.JFrame {
         jtaOutput.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
         jtaOutput.setForeground(new java.awt.Color(51, 255, 51));
         jtaOutput.setRows(5);
+        jtaOutput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtaOutputFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtaOutput);
 
         jlCaret.setBackground(new java.awt.Color(0, 0, 0));
+        jlCaret.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         jlCaret.setForeground(new java.awt.Color(0, 255, 0));
         jlCaret.setText(">");
         jlCaret.setOpaque(true);
@@ -180,11 +195,11 @@ public class CLI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtfInput, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(jtfInput, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(jlCaret, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -212,6 +227,10 @@ public class CLI extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         jtfInput.requestFocus();
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void jtaOutputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaOutputFocusGained
+        jtfInput.requestFocus();
+    }//GEN-LAST:event_jtaOutputFocusGained
 
     /**
      * @param args the command line arguments
@@ -287,8 +306,8 @@ public class CLI extends javax.swing.JFrame {
         appendMessage("CLI v2.1.32");
         appendMessage("Proceeding to authentication mode...");
         appendMessage("Authentication mode ready.");
-        startAnimateCaret();
 
+        startAnimateCaret();
         followExpectations();
     }
 
@@ -412,7 +431,7 @@ public class CLI extends javax.swing.JFrame {
     protected static final String HELP_MESSAGE = "Available commands: \n"
             + "    help: show this help\n"
             + "    exit: exit the secured CLI\n"
-            + "    odds: special CLI features"
+            + "    odds: special CLI features\n"
             + "    mail: tell about new mail messages\n"
             + "    log:  access personal log messages\n";
 
@@ -600,6 +619,7 @@ public class CLI extends javax.swing.JFrame {
     private void followExpectations() throws InterruptedException {
         authQuestions();
         appendMessage("Authentication OK, welcome home Heather!");
+        appendMessage("Ready to accept commands (need help?).");
         processCommands();
 
     }
